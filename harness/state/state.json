@@ -1,0 +1,35 @@
+{
+  "harness_version": "1.0.0",
+  "profile": "web-app",
+  "derived_from": {
+    "raw_md_sha": "pending",
+    "harness_md_sha": "pending"
+  },
+  "mode": "EXECUTE",
+  "sprint": 0,
+  "task_id": "T-0001",
+  "current_stage": "build",
+  "stages": {
+    "curation": "done",
+    "scaffold": "done",
+    "build": "done",
+    "review": "done",
+    "security": "done",
+    "qa": "done",
+    "docs": "done"
+  },
+  "lanes": [],
+  "attempts": {},
+  "last_commit": null,
+  "last_gate": {
+    "name": "G4",
+    "status": "pass",
+    "at": "2026-10-24T15:06:31+05:30",
+    "log": "harness/artifacts/T-0001/07-qa.md"
+  },
+  "breaker": {
+    "tripped": false,
+    "reason": null
+  },
+  "updated_at": "2026-10-24T15:06:31+05:30"
+}

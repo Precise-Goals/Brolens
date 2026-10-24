@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #17191c;
+  --accent: #ff6a00;
+  --accent-soft: #fff0e2;
+  --ink: #17191c;
+  --muted: #6f737a;
+  --line: rgba(23, 25, 28, 0.1);
+  --glass-bg: rgba(255, 255, 255, 0.65);
+  --glass-border: rgba(255, 255, 255, 0.5);
+  --glow-orange: 0 0 40px rgba(255, 106, 0, 0.35), 0 0 80px rgba(255, 106, 0, 0.12);
+  --glow-orange-sm: 0 0 20px rgba(255, 106, 0, 0.28);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  overflow-x: hidden;
+}
+
+* { box-sizing: border-box; }
+
+::selection { background: rgba(255, 106, 0, 0.18); }
+
+/* ── Liquid Glass ─────────────────────────── */
+.glass-panel {
+  position: relative;
+  overflow: hidden;
+  border: 1px solid var(--glass-border);
+  background: var(--glass-bg);
+  backdrop-filter: blur(28px);
+  -webkit-backdrop-filter: blur(28px);
+  box-shadow: 0 8px 32px rgba(23, 25, 28, 0.08), inset 0 1px 0 rgba(255,255,255,0.8);
+}
+.glass-panel::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(135deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.1) 40%, transparent 100%);
+  z-index: 0;
+}
+.glass-panel::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(to bottom right, rgba(255,106,0,0.04), transparent 50%);
+  z-index: 0;
+}
+
+/* ── Glow States ──────────────────────────── */
+.glow-orange { box-shadow: var(--glow-orange); }
+.glow-orange-sm { box-shadow: var(--glow-orange-sm); }
+
+/* ── Orange shimmer border ────────────────── */
+.shimmer-border {
+  position: relative;
+}
+.shimmer-border::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, rgba(255,106,0,0.6), rgba(255,106,0,0.1) 40%, rgba(255,106,0,0.5));
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: -1;
+}
+.shimmer-border:hover::before { opacity: 1; }
+
+/* ── Slot counter ─────────────────────────── */
+.slot-digit {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: middle;
+}
+
+/* ── Log scroll ───────────────────────────── */
+.log-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255,106,0,0.7) rgba(23,25,28,0.08);
+}
+
+/* ── Animated background ──────────────────── */
+@keyframes drift {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  33% { transform: translate(20px, -15px) scale(1.04); }
+  66% { transform: translate(-15px, 12px) scale(0.97); }
+}
+@keyframes orange-pulse {
+  0%, 100% { opacity: 0.22; }
+  50% { opacity: 0.38; }
+}
+
+.bg-blob-1 {
+  animation: drift 18s ease-in-out infinite, orange-pulse 6s ease-in-out infinite;
+}
+.bg-blob-2 {
+  animation: drift 24s ease-in-out infinite reverse, orange-pulse 8s ease-in-out infinite 2s;
+}

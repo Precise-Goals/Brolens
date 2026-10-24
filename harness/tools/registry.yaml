@@ -1,0 +1,41 @@
+tools:
+  - name: file_read
+    kind: builtin
+    purpose: inspect project files
+    allowed_roles: [all]
+    approval: auto
+  - name: file_write
+    kind: builtin
+    purpose: write within role allow-list
+    allowed_roles: [role-scoped]
+    approval: auto
+  - name: bash
+    kind: bash
+    purpose: run canonical commands and read-only inspection
+    allowed_roles: [orchestrator, builder, test-author, qa, security]
+    approval: auto
+  - name: context7
+    kind: mcp
+    purpose: current library docs
+    allowed_roles: [all]
+    approval: auto
+  - name: github
+    kind: mcp
+    purpose: read checks and PR metadata
+    allowed_roles: [orchestrator, reviewer, qa, security, scribe]
+    approval: auto
+  - name: semgrep
+    kind: mcp
+    purpose: security and secret scan
+    allowed_roles: [builder, reviewer, security, qa]
+    approval: auto
+  - name: playwright
+    kind: mcp
+    purpose: browser verification
+    allowed_roles: [test-author, builder, qa]
+    approval: auto
+  - name: deploy
+    kind: bash
+    purpose: deployment
+    allowed_roles: []
+    approval: forbidden

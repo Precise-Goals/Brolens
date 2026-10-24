@@ -1,0 +1,13 @@
+{
+  "type": "object",
+  "required": ["harness_version", "mode", "sprint", "current_stage", "attempts", "breaker", "updated_at"],
+  "properties": {
+    "harness_version": { "type": "string" },
+    "mode": { "enum": ["DISCOVERY", "CURATION", "SCAFFOLD", "EXECUTE", "RETRO"] },
+    "sprint": { "type": "integer" },
+    "current_stage": { "type": "string" },
+    "attempts": { "type": "object" },
+    "breaker": { "type": "object" },
+    "updated_at": { "type": "string" }
+  }
+}

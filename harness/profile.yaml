@@ -1,0 +1,28 @@
+project_type: web-app
+languages: [javascript]
+frameworks: [nextjs, react, tailwindcss]
+package_manager: bun
+has_ui: true
+has_db: false
+has_network_integrations: true
+handles_sensitive_data: true
+deploy_target: none
+team_mode: team
+ci: none
+parallelism: 3
+sprint_length: by-task
+confidence: 0.9
+enabled_roles:
+  - orchestrator
+  - po-spec
+  - designer
+  - tech-lead
+  - test-author
+  - builder
+  - reviewer
+  - security
+  - qa
+  - scribe
+  - librarian
+disabled_roles: []
+mcp_preset: fullstack-web

@@ -1,0 +1,10 @@
+{
+  "max_stage_retries": 3,
+  "max_identical_failures": 2,
+  "max_diff_lines_per_lane": 500,
+  "max_files_per_lane": 25,
+  "max_parallel_agents": 3,
+  "max_session_minutes": 120,
+  "max_tool_calls_per_stage": 150,
+  "no_progress_window": 3
+}
